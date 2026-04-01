@@ -30,6 +30,44 @@ body {
   pointer-events: none;
 }
 
+/* ─── Custom Scrollbar ───────────────────────────────────────── */
+
+@layer base {
+  /* Firefox */
+  * {
+    scrollbar-width: thin;
+    scrollbar-color: rgba(34, 197, 94, 0.35) rgba(5, 9, 6, 0.6);
+  }
+
+  /* WebKit (Chrome, Edge, Safari) */
+  ::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: rgba(10, 15, 13, 0.8);
+    border-radius: 999px;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: rgba(34, 197, 94, 0.35);
+    border-radius: 999px;
+    border: 1px solid rgba(34, 197, 94, 0.15);
+    transition: background 0.2s ease;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: rgba(34, 197, 94, 0.6);
+    box-shadow: 0 0 8px rgba(34, 197, 94, 0.5);
+  }
+
+  ::-webkit-scrollbar-corner {
+    background: transparent;
+  }
+}
+
+/* ─── Utility Classes ────────────────────────────────────────── */
 @layer utilities {
   .glass-card {
     @apply bg-zinc-900/40 border border-zinc-800/50 rounded-2xl backdrop-blur-md relative overflow-hidden;
